@@ -1,0 +1,125 @@
+﻿<Fluent:RibbonWindow x:Name="ribbonWindow" x:Class="FM16.Emulation.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:s="clr-namespace:System"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FM16.Emulation.App"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:Fluent="urn:fluent-ribbon"
+        xmlns:hexa="clr-namespace:WpfHexaEditor;assembly=WPFHexaEditor"
+        mc:Ignorable="d"
+        Title="FM16 Emulator" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Fluent:Ribbon IsQuickAccessToolBarVisible="False">
+            <Fluent:Ribbon.Menu>
+                <Fluent:Backstage>
+
+                </Fluent:Backstage>
+            </Fluent:Ribbon.Menu>
+
+            <Fluent:RibbonTabItem Header="Emulation">
+                <Fluent:RibbonGroupBox Header="Control">
+                    <Fluent:ToggleButton Header="Run" LargeIcon="{StaticResource PlayIconLarge}" />
+                    <Fluent:Button Header="Step" LargeIcon="{StaticResource RightArrowIconLarge}" />
+                    <Fluent:Button Header="Stop" LargeIcon="{StaticResource StopIconLarge}" />
+                    <Fluent:Button Header="Reset" LargeIcon="{StaticResource ResetIconLarge}" Click="OnResetCPU" />
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Memory">
+                    <Fluent:Button Header="Save Memory Image" Size="Middle" Icon="{StaticResource AddIconSmall}" IsEnabled="False" />
+                    <Fluent:Button Header="Load ROM Image" Size="Middle" Icon="{StaticResource AddIconSmall}" IsEnabled="False" />
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Devices">
+                    <Fluent:Button Header="Add Device" LargeIcon="{StaticResource AddIconLarge}" IsEnabled="False" />
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+            <Fluent:RibbonTabItem Header="Assembler">
+                <Fluent:RibbonGroupBox Header="File">
+                    <Fluent:Button Header="New" />
+                    <Fluent:Button Header="Open" />
+                    <Fluent:Button Header="Save" />
+                    <Fluent:Button Header="Save All" Size="Middle" ></Fluent:Button>
+                    <Fluent:SeparatorTabItem />
+                    <Fluent:Button Header="Close" Size="Middle" ></Fluent:Button>
+                    <Fluent:Button Header="Close All" Size="Middle" ></Fluent:Button>
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Compile">
+                    <Fluent:Button Header="Build" IsEnabled="False" />
+                    <Fluent:Button Header="Upload" IsEnabled="False" />
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+            <Fluent:RibbonTabItem Header="Debugging" IsEnabled="False">
+
+            </Fluent:RibbonTabItem>
+        </Fluent:Ribbon>
+
+        <xcad:DockingManager Grid.Row="1" AllowMixedOrientation="True">
+            <xcad:DockingManager.DocumentHeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding IconSource}" Margin="0,0,4,0"/>
+                        <TextBlock Text="{Binding Title}" />
+                    </StackPanel>
+                </DataTemplate>
+            </xcad:DockingManager.DocumentHeaderTemplate>
+            <xcad:LayoutRoot x:Name="_layoutRoot">
+                <xcad:LayoutPanel Orientation="Horizontal">
+                    <xcad:LayoutDocumentPaneGroup>
+                        <xcad:LayoutDocumentPane>
+                            <xcad:LayoutDocument ContentId="document1" Title="Document 1">
+                                <hexa:HexEditor 
+                                AllowAutoHighLightSelectionByte="False"
+                                AllowAutoSelectSameByteAtDoubleClick="False"
+                                AllowDeleteByte="False"
+                                AllowZoom="False"
+                                ByteModifiedColor="#30FFFF00"
+                                OffSetPanelFixedWidthVisual="Fixed"
+                                Stream="{Binding Stream, ElementName=ribbonWindow}"
+                                />
+                            </xcad:LayoutDocument>
+                            <xcad:LayoutDocument ContentId="document2" Title="Document 2">
+                                <TextBox></TextBox>
+                            </xcad:LayoutDocument>
+                        </xcad:LayoutDocumentPane>
+                    </xcad:LayoutDocumentPaneGroup>
+                    <xcad:LayoutAnchorablePaneGroup DockWidth="340">
+                        <xcad:LayoutAnchorablePane>
+                            <xcad:LayoutAnchorable ContentId="" Title="Registers" CanHide="True" CanClose="False" AutoHideWidth="340">
+                                <xctk:PropertyGrid NameColumnWidth="110" SelectedObject="{Binding Registers, ElementName=ribbonWindow}">
+                                    <xctk:PropertyGrid.EditorDefinitions>
+                                        <xctk:EditorTemplateDefinition TargetProperties="{x:Type s:UInt16}">
+                                            <xctk:EditorTemplateDefinition.EditingTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Value, StringFormat=X4}" />
+                                                </DataTemplate>
+                                            </xctk:EditorTemplateDefinition.EditingTemplate>
+                                        </xctk:EditorTemplateDefinition>
+                                        <xctk:EditorTemplateDefinition TargetProperties="{x:Type s:Byte}">
+                                            <xctk:EditorTemplateDefinition.EditingTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Value, StringFormat=X2}" />
+                                                </DataTemplate>
+                                            </xctk:EditorTemplateDefinition.EditingTemplate>
+                                        </xctk:EditorTemplateDefinition>
+                                    </xctk:PropertyGrid.EditorDefinitions>
+                                </xctk:PropertyGrid>
+                            </xcad:LayoutAnchorable>
+                        </xcad:LayoutAnchorablePane>
+                    </xcad:LayoutAnchorablePaneGroup>
+                </xcad:LayoutPanel>
+                <xcad:LayoutRoot.RightSide>
+                    <xcad:LayoutAnchorSide>
+                        <xcad:LayoutAnchorGroup>
+                        </xcad:LayoutAnchorGroup>
+                    </xcad:LayoutAnchorSide>
+                </xcad:LayoutRoot.RightSide>
+            </xcad:LayoutRoot>
+        </xcad:DockingManager>
+    </Grid>
+</Fluent:RibbonWindow>

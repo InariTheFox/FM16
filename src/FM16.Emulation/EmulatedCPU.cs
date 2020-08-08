@@ -198,12 +198,12 @@ namespace FM16.Emulation
 
         #endregion
 
+        #region Internal Registers
+
         /// <summary>
         /// Instruction pointer register.
         /// </summary>
         public ushort IP { get; set; }
-
-        #region Internal Registers
 
         /// <summary>
         /// Instruction register. Stores the currently executing instruction

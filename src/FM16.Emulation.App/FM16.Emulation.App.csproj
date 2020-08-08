@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\icons-pause-16.png" />
+    <None Remove="Resources\icons-pause-32.png" />
+    <None Remove="Resources\icons-play-16.png" />
+    <None Remove="Resources\icons-play-32.png" />
+    <None Remove="Resources\icons-plus-math-16.png" />
+    <None Remove="Resources\icons-plus-math-32.png" />
+    <None Remove="Resources\icons-return-16.png" />
+    <None Remove="Resources\icons-return-32.png" />
+    <None Remove="Resources\icons-right-16.png" />
+    <None Remove="Resources\icons-right-32.png" />
+    <None Remove="Resources\icons-right-arrow-16.png" />
+    <None Remove="Resources\icons-right-arrow-32.png" />
+    <None Remove="Resources\icons-stop-16.png" />
+    <None Remove="Resources\icons-stop-32.png" />
+    <None Remove="Resources\icons-usb-connected-32.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.0.1" />
+    <PackageReference Include="Fluent.Ribbon" Version="8.0.0" />
+    <PackageReference Include="WPFHexaEditor" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FM16.Emulation\FM16.Emulation.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Icons\icons-pause-16.png" />
+    <Resource Include="Resources\Icons\icons-pause-32.png" />
+    <Resource Include="Resources\Icons\icons-play-16.png" />
+    <Resource Include="Resources\Icons\icons-play-32.png" />
+    <Resource Include="Resources\Icons\icons-plus-math-16.png" />
+    <Resource Include="Resources\Icons\icons-plus-math-32.png" />
+    <Resource Include="Resources\Icons\icons-return-16.png" />
+    <Resource Include="Resources\Icons\icons-return-32.png" />
+    <Resource Include="Resources\Icons\icons-right-16.png" />
+    <Resource Include="Resources\Icons\icons-right-32.png" />
+    <Resource Include="Resources\Icons\icons-right-arrow-16.png" />
+    <Resource Include="Resources\Icons\icons-right-arrow-32.png" />
+    <Resource Include="Resources\Icons\icons-stop-16.png" />
+    <Resource Include="Resources\Icons\icons-stop-32.png" />
+    <Resource Include="Resources\Icons\icons-usb-connected-32.png" />
+  </ItemGroup>
+
+</Project>
