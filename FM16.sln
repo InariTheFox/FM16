@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FM16.Emulation.Tests", "tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FM16.Emulation.Operations", "src\FM16.Emulation.Operations\FM16.Emulation.Operations.csproj", "{120F5D1D-7210-4C3B-A9F9-862FD17301F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FM16.Emulation.App", "src\FM16.Emulation.App\FM16.Emulation.App.csproj", "{308A831F-6111-4C06-8B1C-C0274C488ADA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FM16.Emulation.App", "src\FM16.Emulation.App\FM16.Emulation.App.csproj", "{308A831F-6111-4C06-8B1C-C0274C488ADA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FM.Assembler", "src\FM.Assembler\FM.Assembler.csproj", "{00BF4D56-BC6E-4C01-AF7E-398EDDEFBE02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{308A831F-6111-4C06-8B1C-C0274C488ADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{308A831F-6111-4C06-8B1C-C0274C488ADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{308A831F-6111-4C06-8B1C-C0274C488ADA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00BF4D56-BC6E-4C01-AF7E-398EDDEFBE02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00BF4D56-BC6E-4C01-AF7E-398EDDEFBE02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00BF4D56-BC6E-4C01-AF7E-398EDDEFBE02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00BF4D56-BC6E-4C01-AF7E-398EDDEFBE02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{AA451825-5B9C-4770-B9E1-B47505E52F39} = {5571971B-12F4-40A2-9955-B17120512E77}
 		{120F5D1D-7210-4C3B-A9F9-862FD17301F9} = {EB0E06E8-AB15-456E-B6E2-628889FFFF92}
 		{308A831F-6111-4C06-8B1C-C0274C488ADA} = {EB0E06E8-AB15-456E-B6E2-628889FFFF92}
+		{00BF4D56-BC6E-4C01-AF7E-398EDDEFBE02} = {EB0E06E8-AB15-456E-B6E2-628889FFFF92}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {433053BE-4FB3-4E4F-ADF8-923F54ABDBFE}
